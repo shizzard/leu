@@ -1,0 +1,13 @@
+[doc Test if leu handles empty infile correctly]
+[include $RUNDIR/test/lux/0-include/common.luxinc]
+
+[shell leu]
+	[progress |run leu|]
+    !$LEU -i ./infile.json
+
+    [progress |check results|]
+    -$unhandled_pattern
+    ?$fail_pattern
+    ???invalid json
+
+    [invoke check-exit-failure]

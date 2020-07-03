@@ -1,0 +1,28 @@
+[doc Test if leu handles commandline arguments correctly]
+[include $RUNDIR/test/lux/0-include/common.luxinc]
+
+[shell leu]
+	[progress |run leu - no cmd|]
+    !$LEU
+
+    [progress |check results|]
+    -$fail_pattern
+    ?Usage: leu
+    ?+in
+    ?+module
+    ?output_dir
+
+    [invoke check-exit-success]
+
+[shell leu]
+	[progress |run leu - no infile|]
+    !$LEU -o . -m foobar
+
+    [progress |check results|]
+    -$fail_pattern
+    ?Usage: leu
+    ?+in
+    ?+module
+    ?output_dir
+
+    [invoke check-exit-success]

@@ -1,0 +1,6 @@
+{application, leu, [
+    {description, "Leu, the Erlang JSON-schema validator generator"},
+    {vsn, "0.0.1"},
+    {registered, []},
+    {applications, [kernel, stdlib, jsone]}
+ ]}.

@@ -1,0 +1,13 @@
+[doc Test if leu handles non-existent infile correctly]
+[include $RUNDIR/test/lux/0-include/common.luxinc]
+
+[shell leu]
+	[progress |run leu|]
+    !$LEU -i non_existent_file.json
+
+    [progress |check results|]
+    -$unhandled_pattern
+    ?$fail_pattern
+    ?enoent
+
+    [invoke check-exit-failure]

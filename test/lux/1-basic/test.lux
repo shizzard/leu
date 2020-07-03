@@ -1,5 +1,0 @@
-[doc Basic test to check if lux works]
-
-[shell single]
-    !echo foo
-    ?echo foo

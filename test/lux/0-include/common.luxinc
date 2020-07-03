@@ -1,0 +1,15 @@
+[global fail_pattern=[Ee][Rr][Rr][Oo][Rr]]
+[global unhandled_pattern=UNHANDLED]
+
+[macro check-exit-failure]
+	[progress |check exit code|]
+	!echo exit-$?
+	-exit-0
+	?exit-1
+[endmacro]
+[macro check-exit-success]
+	[progress |check exit code|]
+	!echo exit-$?
+	-exit-1
+	?exit-0
+[endmacro]
